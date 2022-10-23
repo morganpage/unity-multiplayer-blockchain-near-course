@@ -10,11 +10,12 @@ public class Move2D : MonoBehaviour
   private Animator _animator;
   private Vector2 _userinput;
   private bool _flipped;
+  [SerializeField] private Transform m_main;
 
   void Awake()
   {
     _rigidbody2D = GetComponent<Rigidbody2D>();
-    _animator = GetComponent<Animator>();
+    _animator = GetComponentInChildren<Animator>();
   }
 
   public void Attack(InputAction.CallbackContext context)
@@ -41,7 +42,7 @@ public class Move2D : MonoBehaviour
     {
       _flipped = false;
     }
-    transform.localScale = new Vector3(_flipped ? -1 : 1, 1, 1);
+    m_main.localScale = new Vector3(_flipped ? -1 : 1, 1, 1);
   }
 
   void FixedUpdate()
