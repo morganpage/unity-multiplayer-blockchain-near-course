@@ -33,6 +33,8 @@ public class Player : NetworkBehaviour
     if (!IsOwner) return;
     ServerSetCharacterIndex(localCharacterIndex);
     ServerSetName(localUsername);
+    Camera.main.GetComponent<CameraFollow>().target = transform;
+    Camera.main.orthographicSize = 3.0f;
   }
 
   [ServerRpc]
