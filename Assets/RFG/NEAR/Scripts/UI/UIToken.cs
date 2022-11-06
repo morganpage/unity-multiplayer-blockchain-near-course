@@ -11,6 +11,8 @@ public class UIToken : MonoBehaviour
   [SerializeField] private TMP_Text _textTitle;
   [SerializeField] private Button _button;
 
+  public Button button { get { return _button; } }
+
   public void SetImage(Texture texture)
   {
     _image.sprite = Sprite.Create((Texture2D)texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
